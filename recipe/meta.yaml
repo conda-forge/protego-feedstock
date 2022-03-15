@@ -1,5 +1,5 @@
 {% set name = "Protego" %}
-{% set version = "0.1.16" %}
+{% set version = "0.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,19 +7,19 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a682771bc7b51b2ff41466460896c1a5a653f9a1e71639ef365a72e66d8734b4
+  sha256: df666d4304dab774e2dc9feb208bb1ac8d71ea5ceec12f4c99eba30fbd642ff2
 
 build:
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
 requirements:
   host:
-    - python
+    - python >=3.5
     - pip
   run:
-    - python
+    - python >=3.5
     - six
 
 test:
@@ -32,7 +32,7 @@ test:
 
 about:
   home: https://github.com/scrapy/protego
-  license: BSD 3-Clauses
+  license: BSD-3-Clause-Clear
   license_file: LICENSE
   summary: A pure-Python robots.txt parser with support for modern conventions
 

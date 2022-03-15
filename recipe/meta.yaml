@@ -16,10 +16,10 @@ build:
 
 requirements:
   host:
-    - python
+    - python >=3.5
     - pip
   run:
-    - python
+    - python >=3.5
     - six
 
 test:
@@ -32,7 +32,7 @@ test:
 
 about:
   home: https://github.com/scrapy/protego
-  license: BSD 3-Clauses
+  license: BSD-3-Clause-Clear
   license_file: LICENSE
   summary: A pure-Python robots.txt parser with support for modern conventions
 

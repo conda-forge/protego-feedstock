@@ -1,5 +1,5 @@
 {% set name = "Protego" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 04228bffde4c6bcba31cf6529ba2cfd6e1b70808fdc1d2cb4301be6b28d6c568
+  sha256: e94430d0d25cbbf239bc849d86c5e544fbde531fcccfa059953c7da344a1712c
 
 build:
   noarch: python

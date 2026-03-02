@@ -1,0 +1,51 @@
+schema_version: 1
+
+context:
+  name: Protego
+  version: 0.5.0
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | lower }}-${{ version }}.tar.gz
+  sha256: 225dee0acfcc71de8c6f7cef9c618e5a9d3e7baa7ae1470b8d076a064033c463
+
+build:
+  number: 1
+  noarch: python
+  script:
+    # Avoid packaging thousands of files purely for test, reduces package size from 2MB+ to ~20KB
+    # Test data is discovered dynamically so harmless to just remove
+    - rm -rf tests/top-10000-websites.txt tests/test_data/* && touch tests/test_data/.keep tests/top-10000-websites.txt
+    - ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - hatchling
+  run:
+    - python >=${{ python_min }}
+
+tests:
+  - files:
+      source:
+        - tests
+    requirements:
+      run:
+        - pytest
+        - python ${{ python_min }}.*
+    script:
+      - pytest tests
+
+about:
+  license: BSD-3-Clause-Clear
+  license_file: LICENSE
+  summary: A pure-Python robots.txt parser with support for modern conventions
+  homepage: https://github.com/scrapy/protego
+
+extra:
+  recipe-maintainers:
+    - Gallaecio

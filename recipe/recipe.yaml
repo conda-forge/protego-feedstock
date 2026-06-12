@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: Protego
-  version: 0.5.0
+  version: "0.6.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/${{ name | lower }}-${{ version }}.tar.gz
-  sha256: 225dee0acfcc71de8c6f7cef9c618e5a9d3e7baa7ae1470b8d076a064033c463
+  sha256: b2b740edd5c691d882a198a66b1d463bf0d574ec915c29f44d2da2bac8efe139
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script:
     # Avoid packaging thousands of files purely for test, reduces package size from 2MB+ to ~20KB
